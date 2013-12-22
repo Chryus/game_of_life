@@ -2,8 +2,11 @@
 
 class World
 
-	# def initialize
+	attr_accessor :rows, :cols
 
-	# end
+	def initialize(rows=3, cols=3)
+		@rows = rows
+		@cols = cols
+	end
 
 end
