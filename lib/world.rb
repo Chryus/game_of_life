@@ -2,16 +2,16 @@
 
 class World
 
-	attr_accessor :rows, :cols, :cell_grid
+  attr_accessor :rows, :cols, :cell_grid
 
-	def initialize(rows=3, cols=3)
-		@rows = rows
-		@cols = cols
+  def initialize(rows=3, cols=3)
+    @rows = rows
+    @cols = cols
+    @cell_grid =  Array.new(rows) do |row| #each row creates a new array with columns and each column creates a new cell
+                    Array.new(cols) do |col|
+                      Cell.new 
+                    end
+                  end 
+  end
 
-		@cell_grid = Array.new(rows) do |row|
-									Array.new(cols) do |col|
-									end
-								end
-	end
-
-end
+end 
