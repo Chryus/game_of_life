@@ -40,7 +40,14 @@ describe 'Cell' do
 
   it 'should respond to proper methods' do
     subject.should respond_to(:alive)
+    subject.should respond_to(:x)
+    subject.should respond_to(:y)
   end
 
+  it 'should initialize properly' do
+    subject.alive.should be_false
+    subject.x.should eq(0)
+    subject.y.should eq(0)
+  end
 
 end
