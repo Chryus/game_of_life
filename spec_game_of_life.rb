@@ -52,12 +52,31 @@ describe 'Cell' do
 
 end
 
+
 describe 'Game' do
+
   subject { Game.new }
 
-  it 'should crreate a new game subject' do
-    subject.is_a(Game).should be_true
+  it 'should create a new game subject' do
+    subject.is_a?(Game).should be_true
   end
-  
+
 end
+
+# context 'Rules' do
+
+#   let!(:game) { Game.new }
+  
+#   context 'Rule 1: Any live cell with fewer than two live neighbors dies, as if caused by under-population.' do
+    
+#     it 'should kill a live cell with 1 or fewer neighbors' do
+      
+#     end
+
+#   end
+
+# end
+
+
+
 
