@@ -1,5 +1,7 @@
 #cell class
-require_relative './world.rb'
+Dir.glob('*.rb') do |model|
+  require_relative model
+end
 
 class Cell
 
@@ -11,12 +13,12 @@ class Cell
     @y = y
   end
 
-  def find_coordinate(coordinate)
-    results = World.cell_grid.each do |row|
-      row.each do |cell|
-        cell.coordinate
-      end
-    end
-  end
+  # def find_coordinate(coordinate)
+  #   results = World.cell_grid.each do |row|
+  #     row.each do |cell|
+  #       cell.coordinate
+  #     end
+  #   end
+  # end
 
 end

@@ -1,5 +1,7 @@
 #2d array as grid, each array is a row [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
-require_relative './cell'
+Dir.glob('*.rb') do |model|
+  require_relative model
+end
 
 class World
 

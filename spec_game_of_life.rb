@@ -51,3 +51,13 @@ describe 'Cell' do
   end
 
 end
+
+describe 'Game' do
+  subject { Game.new }
+
+  it 'should crreate a new game subject' do
+    subject.is_a(Game).should be_true
+  end
+  
+end
+
