@@ -46,6 +46,7 @@ describe 'Game of life' do
       subject.should respond_to(:alive)
       subject.should respond_to(:x)
       subject.should respond_to(:y)
+      subject.should respond_to(:alive?)
     end
 
     it 'should initialize properly' do
@@ -77,8 +78,9 @@ describe 'Game of life' do
 
     it 'should seed properly' do
       game = Game.new(world, [[1, 2], [0,2]])
+      world.cell_grid[1][2].alive?.should be_true
     end
-  
+
   end
 
 end

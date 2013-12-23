@@ -13,10 +13,14 @@ class Cell
     @y = y
   end
 
-  # def find_coordinate(coordinate)
-  #   results = World.cell_grid.each do |row|
+  def alive?
+    alive
+  end
+
+  # world.cell_grid.each do |grid|
+  #   grid.each do |row|
   #     row.each do |cell|
-  #       cell.coordinate
+  #       cell.alive = true
   #     end
   #   end
   # end
