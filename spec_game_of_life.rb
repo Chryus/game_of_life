@@ -38,4 +38,9 @@ describe 'Cell' do
     subject.is_a?(Cell).should be_true
   end
 
+  it 'should respond to proper methods' do
+    subject.should respond_to(:alive)
+  end
+
+
 end
