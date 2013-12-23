@@ -4,9 +4,11 @@ end
 
 class Game
 
-	attr_accessor :world, :cell
+	attr_accessor :world, :seeds
 
-	def initialize
+	def initialize(world=World.new, seeds=[])
+		# @world = world
+		# @seeds = seeds
 	end
-
+	
 end
