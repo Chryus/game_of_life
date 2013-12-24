@@ -13,6 +13,11 @@ class Cell
     @y = y
   end
 
+  def dead?
+    !alive
+  end
+
+
   def alive?
     alive
   end

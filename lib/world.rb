@@ -22,7 +22,7 @@ class World
                   end 
   end
 
-  def count_neighbors(cell)
+  def count_live_neighbors(cell)
 
   end
 
