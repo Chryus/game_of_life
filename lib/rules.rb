@@ -4,4 +4,11 @@ end
 
 class Rules
 
+	attr_accessor :tick
+
+	def initialize
+
+	end
+
+
 end

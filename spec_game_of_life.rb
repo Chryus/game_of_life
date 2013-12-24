@@ -21,6 +21,7 @@ describe 'Game of life' do
       subject.should respond_to(:rows)
       subject.should respond_to(:cols)
       subject.should respond_to(:cell_grid)
+      subject.should respond_to(:count_neighbors)
     end
 
     it 'should create proper cell grid upon initialization' do
@@ -57,7 +58,6 @@ describe 'Game of life' do
 
   end
 
-
   context 'Game' do
 
     subject { Game.new }
@@ -83,24 +83,24 @@ describe 'Game of life' do
 
   end
 
-end
+  context 'Rules' do
 
-
-
-
-# context 'Rules' do
-
-#   let!(:game) { Game.new }
-  
-#   context 'Rule 1: Any live cell with fewer than two live neighbors dies, as if caused by under-population.' do
+    let!(:game) { Game.new }
     
-#     it 'should kill a live cell with 1 or fewer neighbors' do
+    context 'Rule 1: Any live cell with fewer than two live neighbors dies, as if caused by under-population.' do
       
-#     end
+      it 'should kill a live cell with 1 live neighbor' do
+        game = Game.new(world, [[1,0], [2,0]])
+        game.tick!
+        world.cell_grid[1][0].should be_dead
+        world.cell_grid[2][0].should be_dead
+      end
+    end
+  
+  end
 
-#   end
 
-# end
+end
 
 
 
