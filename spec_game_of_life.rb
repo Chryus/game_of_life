@@ -21,13 +21,7 @@ describe 'Game of life' do
       subject.should respond_to(:rows)
       subject.should respond_to(:cols)
       subject.should respond_to(:cell_grid)
-      subject.should respond_to(:count_live_neighbors)
-    end
-
-    it 'should detect a neighbor to the north' do
-      subject.cell_grid[0][1].should be_dead
-      subject.cell_grid[0][1].alive = true
-      subject.cell_grid[0][1].should be_alive
+      subject.should respond_to(:live_neighbors_around_cell)
     end
 
     it 'should create proper cell grid upon initialization' do
@@ -38,6 +32,14 @@ describe 'Game of life' do
           col.is_a?(Cell).should be_true
         end
       end
+    end
+
+    it 'should detect a neighbor to the north' do
+      subject.cell_grid[0][1].should be_dead
+      subject.cell_grid[0][1].alive = true
+      subject.cell_grid[0][1].should be_alive
+      sub = subject.live_neighbors_around_cell(subject.cell_grid[1][1])
+      sub.count.should == 1
     end
 
   end
