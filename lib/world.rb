@@ -31,7 +31,7 @@ class World
       candidate = self.cell_grid[cell.y - 1][cell.x]
       live_neighbors << candidate if candidate.alive?
     end
-    #eash
+    #east
     if cell.x < 2
       candidate = self.cell_grid[cell.y][cell.x + 1]
       live_neighbors << candidate if candidate.alive?
@@ -48,8 +48,23 @@ class World
       live_neighbors << candidate if candidate.alive?
     end
     #south
-    if cell.y <2
+    if cell.y < 2
       candidate = self.cell_grid[cell.y + 1][cell.x]
+      live_neighbors << candidate if candidate.alive?
+    end
+    #southwest
+    if cell.y < 2 && cell.x > 0
+      candidate = self.cell_grid[cell.y + 1][cell.x - 1]
+      live_neighbors << candidate if candidate.alive?
+    end
+    #west
+    if cell.x > 0
+      candidate = self.cell_grid[cell.y][cell.x - 1]
+      live_neighbors << candidate if candidate.alive?
+    end
+    #northwest
+    if cell.x > 0 && cell.y > 0
+      candidate = self.cell_grid[cell.y - 1][cell.x - 1]
       live_neighbors << candidate if candidate.alive?
     end
     live_neighbors
