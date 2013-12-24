@@ -24,6 +24,8 @@ describe 'Game of life' do
       subject.should respond_to(:count_neighbors)
     end
 
+    #it 'should return an array of cells bordering a cell' do
+
     it 'should create proper cell grid upon initialization' do
       subject.cell_grid.is_a?(Array).should be_true
       subject.cell_grid.each do |row| 

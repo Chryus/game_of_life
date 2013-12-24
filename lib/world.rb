@@ -22,4 +22,11 @@ class World
                   end 
   end
 
+  def count_neighbors(cell)
+
+  end
+
+
+
+
 end 
