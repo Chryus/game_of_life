@@ -41,6 +41,27 @@ describe 'Game of life' do
       subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
     end
 
+    it 'should detect a neighbor to the northeast' do
+      subject.cell_grid[0][2].should be_dead
+      subject.cell_grid[0][2].alive = true
+      subject.cell_grid[0][2].should be_alive
+      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+    end
+
+    it 'should detect a neighbor to the east' do
+      subject.cell_grid[1][2].should be_dead
+      subject.cell_grid[1][2].alive = true
+      subject.cell_grid[1][2].should be_alive
+      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+    end
+
+    it 'should detect a neighbor to the southeast' do
+      subject.cell_grid[2][2].should be_dead
+      subject.cell_grid[2][2].alive = true
+      subject.cell_grid[2][2].should be_alive
+      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+    end
+
   end
 
   context 'Cell' do
