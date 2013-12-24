@@ -13,14 +13,9 @@ class Cell
     @y = y
   end
 
-  def dead?
-    !alive
-  end
+  def alive?; alive; end
 
-
-  def alive?
-    alive
-  end
+  def dead?; !alive; end
 
   # world.cell_grid.each do |grid|
   #   grid.each do |row|
