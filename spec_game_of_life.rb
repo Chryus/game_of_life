@@ -9,6 +9,7 @@ end
 describe 'Game of life' do
 
   let!(:world) { World.new }
+  let!(:cell) { Cell.new(1,1) }
 
   context 'World' do
     subject { World.new }
@@ -38,56 +39,56 @@ describe 'Game of life' do
       subject.cell_grid[0][1].should be_dead
       subject.cell_grid[0][1].alive = true
       subject.cell_grid[0][1].should be_alive
-      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+      subject.live_neighbors_around_cell(cell).count.should eq(1)
     end
 
     it 'should detect a neighbor to the northeast' do
       subject.cell_grid[0][2].should be_dead
       subject.cell_grid[0][2].alive = true
       subject.cell_grid[0][2].should be_alive
-      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+      subject.live_neighbors_around_cell(cell).count.should eq(1)
     end
 
     it 'should detect a neighbor to the east' do
       subject.cell_grid[1][2].should be_dead
       subject.cell_grid[1][2].alive = true
       subject.cell_grid[1][2].should be_alive
-      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+      subject.live_neighbors_around_cell(cell).count.should eq(1)
     end
 
     it 'should detect a neighbor to the southeast' do
       subject.cell_grid[2][2].should be_dead
       subject.cell_grid[2][2].alive = true
       subject.cell_grid[2][2].should be_alive
-      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+      subject.live_neighbors_around_cell(cell).count.should eq(1)
     end
 
     it 'should detect a neighbor to the south' do
       subject.cell_grid[2][1].should be_dead
       subject.cell_grid[2][1].alive = true
       subject.cell_grid[2][1].should be_alive
-      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+      subject.live_neighbors_around_cell(cell).count.should eq(1)
     end
 
     it 'should detect a neighbor to the southwest' do
       subject.cell_grid[2][0].should be_dead
       subject.cell_grid[2][0].alive = true
       subject.cell_grid[2][0].should be_alive
-      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+      subject.live_neighbors_around_cell(cell).count.should eq(1)
     end
 
     it 'should detect a neighbor to the west' do
       subject.cell_grid[1][0].should be_dead
       subject.cell_grid[1][0].alive = true
       subject.cell_grid[1][0].should be_alive
-      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+      subject.live_neighbors_around_cell(cell).count.should eq(1)
     end
 
     it 'should detect a neighbor to the northwest' do
       subject.cell_grid[0][0].should be_dead
       subject.cell_grid[0][0].alive = true
       subject.cell_grid[0][0].should be_alive
-      subject.live_neighbors_around_cell(subject.cell_grid[1][1]).count.should eq(1)
+      subject.live_neighbors_around_cell(cell).count.should eq(1)
     end
 
   end
