@@ -13,16 +13,12 @@ class Cell
     @y = y
   end
 
+  def die!
+    self.alive = false
+  end
+
   def alive?; alive; end
 
   def dead?; !alive; end
-
-  # world.cell_grid.each do |grid|
-  #   grid.each do |row|
-  #     row.each do |cell|
-  #       cell.alive = true
-  #     end
-  #   end
-  # end
 
 end

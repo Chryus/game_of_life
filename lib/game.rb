@@ -16,4 +16,13 @@ class Game
 
 	end
 
+	def tick!
+		#kill a cell with 1 live neighbor
+		world.cells.each do |cell|
+			if cell.alive? && world.live_neighbors_around_cell(cell).count < 2
+				cell.die!
+			end
+		end
+	end
+
 end

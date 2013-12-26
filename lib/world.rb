@@ -5,24 +5,38 @@ end
 
 class World
 
-  attr_accessor :rows, :cols, :cell_grid
+  attr_accessor :rows, :cols, :cell_grid, :cells
 
   def initialize(rows=3, cols=3)
     @rows = rows
     @cols = cols
+    @cells = []
     
     #   col=  0          1         2      
     # 0 [[Cell.new][Cell.new][Cell.new]]
     # 1 [[Cell.new][Cell.new][Cell.new]]
 #row# 2 [[Cell.new][Cell.new][Cell.new]]
-#cell.x < (cols - 1)
+
 
     @cell_grid =  Array.new(rows) do |row| #each row creates a new array with columns and each column creates a new cell
                     Array.new(cols) do |col|
-                      Cell.new(col, row)
+                      cell = Cell.new(col, row)
+                      cells << cell
+                      cell
                     end
                   end 
   end
+
+  # def cells
+  #   self.cell_grid.each do |row| 
+  #     row.each do |cell|
+  #       cell.each do |cell|
+  #         cell 
+  #       end
+  #     end
+  #   end
+  #   cell
+  # end
 
   def live_neighbors_around_cell(cell)
     live_neighbors = []
