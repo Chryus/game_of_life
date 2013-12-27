@@ -150,6 +150,7 @@ describe 'Game of life' do
   context 'Rules' do
 
     let!(:game) { Game.new }
+    let!(:cell) { Cell.new(1,1) }
     
     context 'Rule 1: Any live cell with fewer than two live neighbors dies, as if caused by under-population.' do
 
@@ -162,6 +163,7 @@ describe 'Game of life' do
       
       it 'should kill a live cell with 1 live neighbor' do
         game = Game.new(world, [[0,1], [1,1]])
+        world.live_neighbors_around_cell(cell).count.should eq(1)
         game.tick!
         world.cell_grid[0][1].should be_dead
         world.cell_grid[1][1].should be_dead
@@ -169,6 +171,7 @@ describe 'Game of life' do
 
       it 'doesnt kill a live cell with 2 live neighbors' do
         game = Game.new(world, [[0,1], [1,1], [2,1]])
+        world.live_neighbors_around_cell(cell).count.should eq(2)
         game.tick!
         world.cell_grid[1][1].should be_alive
       end
@@ -211,12 +214,13 @@ describe 'Game of life' do
 
     context 'Rule 4: Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction' do
       it 'should reanimate any dead cell with exactly three live neighbors' do
-        game = Game.new(world, [[1,0], [2,0], [1,1], [2,1]])
+        game = Game.new(world, [[1,1], [2,1], [1,2], [2,2]])
+        game.world.cell_grid[1][1].alive = false
         game.tick!
-        world.cell_grid[1][0].should be_alive
-        world.cell_grid[2][0].should be_alive
         world.cell_grid[1][1].should be_alive
         world.cell_grid[2][1].should be_alive
+        world.cell_grid[1][2].should be_alive
+        world.cell_grid[2][2].should be_alive
       end
     end
   end
