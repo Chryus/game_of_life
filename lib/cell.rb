@@ -17,6 +17,10 @@ class Cell
     self.alive = false
   end
 
+  def revive!
+    self.alive = true
+  end
+
   def alive?; alive; end
 
   def dead?; !alive; end

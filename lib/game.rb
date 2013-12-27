@@ -24,7 +24,7 @@ class Game
 			end
 			#rule 2
 			if cell.alive? && world.live_neighbors_around_cell(cell).count.between?(2,3)
-				cell.alive = true
+				cell.revive! 
 			end
 			#rule 3
 			if cell.alive? && world.live_neighbors_around_cell(cell).count > 3
@@ -32,7 +32,7 @@ class Game
 			end
 			#rule 4
 			if cell.dead? && world.live_neighbors_around_cell(cell).count == 3
-				cell.alive = true
+				cell.revive! 
 			end
 		end
 	end
