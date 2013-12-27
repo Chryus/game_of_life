@@ -159,6 +159,13 @@ describe 'Game of life' do
         world.cell_grid[1][0].should be_dead
         world.cell_grid[2][0].should be_dead
       end
+
+      it 'should kill a live cell with 0 live neighbors' do
+        game = Game.new(world, [1,0])
+        game.tick!
+        world.cell_grid[1][0].should be_dead
+      end
+
     end
 
     context 'Rule 2: Any live cell with two or three live neighbours lives on to the next generation.' do
