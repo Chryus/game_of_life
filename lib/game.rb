@@ -37,8 +37,8 @@ class Game
 				next_round_live_cells << cell 
 			end
 		end
-		next_round_dead_cells.collect {|cell| cell.die!}
 		next_round_live_cells.collect {|cell| cell.revive!}
+		next_round_dead_cells.collect {|cell| cell.die!}	
 	end
 
 end
