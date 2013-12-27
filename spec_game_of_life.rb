@@ -185,13 +185,14 @@ describe 'Game of life' do
         world.cell_grid[2][1].should be_dead
       end
 
-      # it 'should let a live cell with 3 neighbors live' do
-      #   game = Game.new(world, [[1,0], [2,0], [1,1]])
-      #   game.tick!
-      #   world.cell_grid[1][0].should be_alive
-      #   world.cell_grid[2][0].should be_alive
-      #   world.cell_grid[1][1].should be_alive
-      # end
+      it 'should let a live cell with 2 or 3 neighbors live' do
+        game = Game.new(world, [[0,1], [1,1], [2,1], [2,2]])
+        game.tick!
+        world.cell_grid[0][1].should be_dead
+        world.cell_grid[1][1].should be_alive
+        world.cell_grid[2][1].should be_alive
+        world.cell_grid[2][2].should be_alive
+      end
 
     end
 
@@ -208,7 +209,7 @@ describe 'Game of life' do
       end
     end
 
-    context 'Rule 4: Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction' do
+    context 'Rule 4: Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction' do
       it 'should reanimate any dead cell with exactly three live neighbors' do
         game = Game.new(world, [[1,0], [2,0], [1,1], [2,1]])
         game.tick!
