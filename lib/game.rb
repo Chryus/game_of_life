@@ -25,6 +25,12 @@ class Game
 			if cell.alive? && world.live_neighbors_around_cell(cell).count.between?(2,3)
 				cell.alive = true
 			end
+			if cell.alive? && world.live_neighbors_around_cell(cell).count > 3
+				cell.die!
+			end
+			if cell.dead? && world.live_neighbors_around_cell(cell).count == 3
+				cell.alive = true
+			end
 		end
 	end
 

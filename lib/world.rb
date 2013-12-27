@@ -27,17 +27,6 @@ class World
                   end 
   end
 
-  # def cells
-  #   self.cell_grid.each do |row| 
-  #     row.each do |cell|
-  #       cell.each do |cell|
-  #         cell 
-  #       end
-  #     end
-  #   end
-  #   cell
-  # end
-
   def live_neighbors_around_cell(cell)
     live_neighbors = []
     #north
@@ -84,7 +73,16 @@ class World
     live_neighbors
   end
 
-
+  # def cells
+  #   self.cell_grid.each do |row| 
+  #     row.each do |cell|
+  #       cell.each do |cell|
+  #         cell 
+  #       end
+  #     end
+  #   end
+  #   cell
+  # end
 
 
 end 
