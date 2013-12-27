@@ -182,6 +182,7 @@ describe 'Game of life' do
       
       it 'should let a live cell with 2 neighbors live' do
         game = Game.new(world, [[0,1], [1,1], [2,1]])
+        world.live_neighbors_around_cell(cell).count.should eq(2)
         game.tick!
         world.cell_grid[0][1].should be_dead
         world.cell_grid[1][1].should be_alive
@@ -190,6 +191,7 @@ describe 'Game of life' do
 
       it 'should let a live cell with 2 or 3 neighbors live' do
         game = Game.new(world, [[0,1], [1,1], [2,1], [2,2]])
+        world.live_neighbors_around_cell(cell).count.should eq(3)
         game.tick!
         world.cell_grid[0][1].should be_dead
         world.cell_grid[1][1].should be_alive
@@ -203,6 +205,7 @@ describe 'Game of life' do
 
       it 'should kill a live cell with more than 3 neighbors' do
         game = Game.new(world, [[0,1], [1,1], [2,1], [1,2], [2,2]])
+        world.live_neighbors_around_cell(cell).count.should eq(4)
         game.tick!
         world.cell_grid[0][1].should be_alive
         world.cell_grid[1][1].should be_dead
@@ -216,6 +219,7 @@ describe 'Game of life' do
       it 'should reanimate any dead cell with exactly three live neighbors' do
         game = Game.new(world, [[1,1], [2,1], [1,2], [2,2]])
         game.world.cell_grid[1][1].alive = false
+        world.live_neighbors_around_cell(cell).count.should eq(3)
         game.tick!
         world.cell_grid[1][1].should be_alive
         world.cell_grid[2][1].should be_alive
