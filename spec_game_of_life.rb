@@ -24,6 +24,7 @@ describe 'Game of life' do
       subject.should respond_to(:cell_grid)
       subject.should respond_to(:live_neighbors_around_cell)
       subject.should respond_to(:cells)
+      subject.should respond_to(:live_cells)
       subject.should respond_to(:randomly_populate)
     end
 
@@ -96,6 +97,16 @@ describe 'Game of life' do
       subject.cell_grid[0][0].alive = true
       subject.cell_grid[0][0].should be_alive
       subject.live_neighbors_around_cell(cell).count.should eq(1)
+    end
+
+    it 'should count the number of live cells' do
+      subject.live_cells.size.should eq(9)
+    end
+
+    it 'should randomly populate the world' do
+      # subject.live_cells.should be_empty
+      # end
+      # suject.randomly_populate
     end
 
   end

@@ -27,11 +27,6 @@ class World
                   end 
   end
 
-
-  def randomly_populate
-  end
-  
-
   def live_neighbors_around_cell(cell)
     live_neighbors = []
     #north
@@ -78,16 +73,15 @@ class World
     live_neighbors
   end
 
-  # def cells
-  #   self.cell_grid.each do |row| 
-  #     row.each do |cell|
-  #       cell.each do |cell|
-  #         cell 
-  #       end
-  #     end
-  #   end
-  #   cell
-  # end
+  def live_cells
+    self.cells.collect {|cell| cell.alive?}
+  end
 
+
+  def randomly_populate(cols, rows)
+    cells.each do |cell|
+      world.cell_grid[seed[rand(0..cols)]][seed[rand(0..rows)]].alive = true
+    end
+  end
 
 end 
