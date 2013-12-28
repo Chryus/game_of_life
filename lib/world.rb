@@ -27,6 +27,11 @@ class World
                   end 
   end
 
+
+  def randomly_populate
+  end
+  
+
   def live_neighbors_around_cell(cell)
     live_neighbors = []
     #north

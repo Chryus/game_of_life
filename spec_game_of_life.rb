@@ -24,6 +24,7 @@ describe 'Game of life' do
       subject.should respond_to(:cell_grid)
       subject.should respond_to(:live_neighbors_around_cell)
       subject.should respond_to(:cells)
+      subject.should respond_to(:randomly_populate)
     end
 
     it 'should create proper cell grid upon initialization' do
