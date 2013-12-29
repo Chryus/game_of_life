@@ -1,7 +1,7 @@
 #gosu file
 
 require 'gosu'
-Dir.glob('/*.rb') do |model|
+Dir.glob('./lib/*.rb') do |model|
   require_relative model
 end
 
@@ -41,15 +41,15 @@ class GameOfLifeWindow < Gosu::Window
 
 		@game.world.cells.each do |cell|
 			if cell.alive?
-				draw_quad(cell.x * @col_width, cell.y * @row_height, @alive_color, 
-									cell.x * @col_width + 1, cell.y * @row_height, @alive_color, #top right of cell
-									cell.x * @col_width + 1, cell.y * @row_height + 1, @alive_color #bottom right of cell
-									cell.x * @col_width, cell.y *@row_height + 1, @alive_color)#bottom left of cell
+				draw_quad(cell.x * @col_width, cell.y * @row_height, @alive_color,
+									cell.x * @col_width + @col_width, cell.y * @row_height, @alive_color,
+									cell.x * @col_width + @col_width, cell.y * @row_height + @row_height, @alive_color,
+									cell.x * @col_width, cell.y * @row_height + @row_height, @alive_color)
 			else
-				draw_quad(cell.x * @col_width, cell.y * @row_height, @dead_color, 
-									cell.x * @col_width + 1, cell.y * @row_height, @dead_color, #top right of cell
-									cell.x * @col_width + 1, cell.y * @row_height + 1, @dead_color #bottom right of cell
-									cell.x * @col_width, cell.y *@row_height + 1, @dead_color)om left of cell
+				draw_quad(cell.x * @col_width, cell.y * @row_height, @dead_color,
+									cell.x * @col_width + @col_width, cell.y * @row_height, @dead_color,
+									cell.x * @col_width + @col_width, cell.y * @row_height + @row_height, @dead_color,
+									cell.x * @col_width, cell.y * @row_height + @row_height, @dead_color)
 			end
 		end
 
@@ -57,6 +57,6 @@ class GameOfLifeWindow < Gosu::Window
 
 	def needs_cursor?; true; end
 
-end
+ end
 
 GameOfLifeWindow.new.show
