@@ -7,7 +7,7 @@ end
 
 class GameOfLifeWindow < Gosu::Window
 
-	def initialize(height=800, width=600)
+	def initialize(height=1800, width=1600)
 		@height = height
 		@width = width
 		super height, width, false
@@ -31,6 +31,7 @@ class GameOfLifeWindow < Gosu::Window
 	end
 
 	def update
+		@game.tick!
 	end
 
 	def draw
