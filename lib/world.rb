@@ -74,13 +74,16 @@ class World
   end
 
   def live_cells
-    self.cells.collect {|cell| cell.alive?}
+    self.cells.select {|cell| cell.alive?}
   end
 
 
-  def randomly_populate(cols, rows)
+  def randomly_populate
     cells.each do |cell|
-      world.cell_grid[seed[rand(0..cols)]][seed[rand(0..rows)]].alive = true
+      randomizer = rand(0..1)
+      if randomizer == 0
+        cell.revive!
+      end
     end
   end
 

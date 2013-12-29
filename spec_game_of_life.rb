@@ -38,11 +38,6 @@ describe 'Game of life' do
       end
     end
 
-    it 'should add all cells to the cells array' do
-      subject.cells.count.should eq(9)
-    end
-
-
     it 'should detect a neighbor to the north' do
       subject.cell_grid[0][1].should be_dead
       subject.cell_grid[0][1].alive = true
@@ -100,13 +95,13 @@ describe 'Game of life' do
     end
 
     it 'should count the number of live cells' do
-      subject.live_cells.size.should eq(9)
+      subject.live_cells.size.should eq(0)
     end
 
     it 'should randomly populate the world' do
-      # subject.live_cells.should be_empty
-      # end
-      # suject.randomly_populate
+      subject.live_cells.size.should eq(0)
+      subject.randomly_populate
+      subject.live_cells.size.should_not eq(0)
     end
 
   end
