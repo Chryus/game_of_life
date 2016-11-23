@@ -1,8 +1,9 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    byebug (9.0.5)
     diff-lcs (1.2.5)
-    gosu (0.7.50)
+    gosu (0.10.5)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -16,5 +17,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gosu
+  byebug
+  gosu (= 0.10.5)
   rspec
+
+BUNDLED WITH
+   1.13.1

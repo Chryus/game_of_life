@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
 
 gem 'rspec'
-gem 'gosu'
+gem 'byebug'
+gem 'gosu', '0.10.5'

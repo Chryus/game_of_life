@@ -12,11 +12,11 @@ class World
     @cols = cols
     @cells = []
     
-    #   col=  0          1         2      
-    # 0 [[Cell.new][Cell.new][Cell.new]]
-    # 1 [[Cell.new][Cell.new][Cell.new]]
-#row# 2 [[Cell.new][Cell.new][Cell.new]]
-
+    # col  0    1    2    x
+    # 0 [[0,0][1,0][2,0]]
+    # 1 [[0,1][1,1][2,1]]
+#row# 2 [[0,2][1,2][2,2]]
+#     y
 
     @cell_grid =  Array.new(rows) do |row| #each row creates a new array with columns and each column creates a new cell
                     Array.new(cols) do |col|
@@ -24,7 +24,7 @@ class World
                       cells << cell
                       cell
                     end
-                  end 
+                  end
   end
 
   def live_neighbors_around_cell(cell)
@@ -34,16 +34,16 @@ class World
       candidate = self.cell_grid[cell.y - 1][cell.x]
       live_neighbors << candidate if candidate.alive?
     end
+    #northeast
+    if cell.y > 0 && cell.x < (cols-1)
+      candidate = self.cell_grid[cell.y - 1][cell.x + 1]
+      live_neighbors << candidate if candidate.alive?
+    end
     #east
     if cell.x < (cols - 1)
       candidate = self.cell_grid[cell.y][cell.x + 1]
       live_neighbors << candidate if candidate.alive?
       live_neighbors
-    end
-    #northeast
-    if cell.y > 0 && cell.x < 2
-      candidate = self.cell_grid[cell.y - 1][cell.x + 1]
-      live_neighbors << candidate if candidate.alive?
     end
     #southeast
     if cell.y < (rows - 1) && cell.x < (cols - 1)
