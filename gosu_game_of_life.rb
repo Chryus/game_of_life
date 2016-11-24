@@ -7,11 +7,11 @@ end
 
 class GameOfLifeWindow < Gosu::Window
 
-	def initialize(height=1800, width=1600)
+	def initialize(height=1000, width=800)
 		@height = height
 		@width = width
 		super height, width, false
-		self.caption = "Gosu Tutorial Game"
+		self.caption = "Game of Life"
 
 		#color
 		@background_color = Gosu::Color.new(0xffdedede)
@@ -35,7 +35,7 @@ class GameOfLifeWindow < Gosu::Window
 	end
 
 	def draw
-		draw_quad(0, 0, @background_color, #top left corner of scree
+		draw_quad(0, 0, @background_color, #top left corner of screen
 							width, 0, @background_color, #top right corner 
 							width, height, @background_color, #bottom right
 							0, height, @background_color) #bottom left
@@ -43,21 +43,19 @@ class GameOfLifeWindow < Gosu::Window
 		@game.world.cells.each do |cell|
 			if cell.alive?
 				draw_quad(cell.x * @col_width, cell.y * @row_height, @alive_color,
-									cell.x * @col_width + @col_width, cell.y * @row_height, @alive_color,
-									cell.x * @col_width + @col_width, cell.y * @row_height + @row_height, @alive_color,
-									cell.x * @col_width, cell.y * @row_height + @row_height, @alive_color)
+									cell.x * @col_width + (@col_width - 1), cell.y * @row_height, @alive_color,
+									cell.x * @col_width + (@col_width - 1), cell.y * @row_height + (@row_height - 1), @alive_color,
+									cell.x * @col_width, cell.y * @row_height + @row_height - 1, @alive_color)
 			else
 				draw_quad(cell.x * @col_width, cell.y * @row_height, @dead_color,
-									cell.x * @col_width + @col_width, cell.y * @row_height, @dead_color,
-									cell.x * @col_width + @col_width, cell.y * @row_height + @row_height, @dead_color,
-									cell.x * @col_width, cell.y * @row_height + @row_height, @dead_color)
+									cell.x * @col_width + (@col_width - 1), cell.y * @row_height, @dead_color,
+									cell.x * @col_width + (@col_width - 1), cell.y * @row_height + @row_height - 1, @dead_color,
+									cell.x * @col_width, cell.y * @row_height + (@row_height - 1), @dead_color)
 			end
 		end
-
 	end
 
 	def needs_cursor?; true; end
-
  end
 
 GameOfLifeWindow.new.show

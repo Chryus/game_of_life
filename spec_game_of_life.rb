@@ -151,8 +151,13 @@ describe 'Game of life' do
       game = Game.new(world, [[1, 2], [0,2]])
       world.cell_grid[1][2].alive?.should be_true
     end
-
   end
+
+    # col  0    1    2    x
+    # 0 [[0,0][1,0][2,0]]
+    # 1 [[0,1][1,1][2,1]]
+#row# 2 [[0,2][1,2][2,2]]
+#     y
 
   context 'Rules' do
 
